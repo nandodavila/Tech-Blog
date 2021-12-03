@@ -16,7 +16,7 @@
   </div>
   {{/if}}
   <p>
-   {{#each post.comment as |comment| }}
+   {{#each post.comments as |comment| }}
     <div class="row mb-4 comment">
       <div class="col-md-5">
         <p>Created by {{comment.user.username}} on {{format_date comment.date_created}}</p>
