@@ -1,48 +1,27 @@
 const newCommentHandler = async (event) => {
     event.preventDefault();
+    const comment = document.querySelector('#post-comment').value.trim();
   
-    const title = document.querySelector('#post-title').value.trim();
-    // const needed_funding = document.querySelector('#post-funding').value.trim();
-    const content = document.querySelector('#post-content').value.trim();
-  
-    if (title && content) {
+    if (comment) {
       const response = await fetch(`/api/posts`, {
         method: 'POST',
-        body: JSON.stringify({ title, content }),
+        body: JSON.stringify({ user_id, comment }),
         headers: {
           'Content-Type': 'application/json',
         },
       });
   
       if (response.ok) {
-        document.location.replace('/profile');
+        document.location.replace('/post/:id');
       } else {
         alert('Failed to create post');
       }
     }
   };
   
-  const delButtonHandler = async (event) => {
-    if (event.target.hasAttribute('data-id')) {
-      const id = event.target.getAttribute('data-id');
-  
-      const response = await fetch(`/api/posts/${id}`, {
-        method: 'DELETE',
-      });
-  
-      if (response.ok) {
-        document.location.replace('/profile');
-      } else {
-        alert('Failed to delete post');
-      }
-    }
-  };
   
   document
-    .querySelector('.new-post-form')
-    .addEventListener('submit', newFormHandler);
-  
-  document
-    .querySelector('.post-list')
-    .addEventListener('click', delButtonHandler);
+    .querySelector('.new-comment-form')
+    .addEventListener('submit', newCommentHandler);
+
   
