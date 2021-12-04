@@ -1,20 +1,22 @@
 const newCommentHandler = async (event) => {
     event.preventDefault();
     const comment = document.querySelector('#post-comment').value.trim();
-    console.log(comment);
+    const post_id = document.querySelector('#post-id').value.trim();
+    
+    console.log(comment );
   
-    if (comment) {
+    if (comment && post_id ) {
       const response = await fetch(`/api/comments`, {
         method: 'POST',
-        body: JSON.stringify({ comment }),
+        body: JSON.stringify({ comment, post_id }),
         headers: {
           'Content-Type': 'application/json',
         },
       });
-        console.log(response.body)
   
       if (response.ok) {
-        document.location.replace('/post/:id');
+        document.location.replace(`/`);
+        alert('Comment Posted')
       } else {
         alert('Failed to create post');
       }
@@ -22,8 +24,6 @@ const newCommentHandler = async (event) => {
   };
   
   
-  document
-    .querySelector('.new-comment-form')
-    .addEventListener('submit', newCommentHandler);
+  document.querySelector('.new-comment-form').addEventListener('submit', newCommentHandler);
 
   
