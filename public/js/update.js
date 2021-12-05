@@ -6,7 +6,6 @@ const updateFormHandler = async (event) => {
     const post_id = document.querySelector('#post-id').value.trim();
   
     if (title && content && post_id) {
-      // Send a POST request to the API endpoint
       const response = await fetch(`/api/posts/${post_id}`, {
         method: 'PUT',
         body: JSON.stringify({ title, content, post_id }),
@@ -14,7 +13,6 @@ const updateFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        // If successful, redirect the browser to the profile page
         document.location.replace('/profile');
       } else {
         alert(response.statusText);

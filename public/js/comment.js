@@ -3,7 +3,6 @@ const newCommentHandler = async (event) => {
     const comment = document.querySelector('#post-comment').value.trim();
     const post_id = document.querySelector('#post-id').value.trim();
     
-    console.log(comment );
   
     if (comment && post_id ) {
       const response = await fetch(`/api/comments`, {
@@ -15,8 +14,7 @@ const newCommentHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace(`/`);
-        alert('Comment Posted')
+        document.location.replace(`/post/${post_id}`);
       } else {
         alert('Failed to create post');
       }

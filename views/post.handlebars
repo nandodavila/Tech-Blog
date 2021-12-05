@@ -17,19 +17,20 @@
     <script src="/js/comment.js"></script>
   </div>
   {{/if}}
-  <div><p>comment start here</p>
     {{#each comments as |comment| }}
-      <div class="row mb-4 comment">
-        <div class="col-md-5">
-          <p>Created by {{comment.user.username}} on {{format_date comment.date_created}}</p>
+      <div class="card">
+        <div class="card-header">
+        {{format_date comment.date_created}}
         </div>
-        <div class="col-md-7">
-          <p>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p class="lead">
           {{comment.comment}}
           </p>
-        </div>
+          <footer class="blockquote-footer">Created by {{comment.user.username}}</footer>
+        </blockquote>
       </div>
-    {{/each}}
-    <p>comments end here</p>  
+    </div>
+    {{/each}} 
   </div>
 </div>
