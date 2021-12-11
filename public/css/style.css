@@ -1,19 +1,32 @@
-header, .project:not(:last-child) {
-  border-bottom: 1px solid rgb(105, 105, 105);
+body {
+    background-color: slategrey;
 }
 
-.no-button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  color: #bc1b1b;
-  text-decoration: none;
-  font-size: 100%;
+a {
+    color: whitesmoke;
 }
 
-.no-button:hover {
-  color: #831f06;
-  text-decoration: underline;
+.tech-blog{
+    background-color: lightslategray;
+    border: 5px outset white
+}
+
+header {
+    margin: 5px;
+    border: 2px solid black;
+}
+
+nav {
+    border: 2px inset black;
+    background-color: darkslategrey;
+    border-radius: 25px;
+}
+
+nav a {
+    padding: 10px;
+}
+
+.post {
+    border: 5px inset white;
 }
 
